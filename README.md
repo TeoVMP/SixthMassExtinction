@@ -54,11 +54,11 @@ But there's a catch: you were born in 2020. If anyone discovers your DNA or iden
 
 ## 📁 Repository Structure
 SixthMassExtinction/
-├── game/ # Godot project (core gameplay)
-├── docs/ # Documentation (EN/ES)
-├── research/ # Scientific references
-├── tools/ # Development utilities
-└── .github/ # CI/CD and community templates
+├── game/           # Godot project (core gameplay)
+├── docs/           # Documentation (EN/ES)
+├── research/       # Scientific references
+├── tools/          # Development utilities
+└── .github/        # CI/CD and community templates
 ## 🔗 Important Links
 - [📚 Full Documentation](docs/)
 - [🗺️ Roadmap](docs/ROADMAP.md)
