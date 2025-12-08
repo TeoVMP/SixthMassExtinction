@@ -1,5 +1,3 @@
-# Crea nuevo README.md
-cat > README.md << 'EOF'
 # Sixth Mass Extinction: Temporal Insurgency
 
 > "You can't change the past. But you can create a better future from it."
