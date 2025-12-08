@@ -53,3 +53,30 @@ But there's a catch: you were born in 2020. If anyone discovers your DNA or iden
 **Community**: Just launched - shape the vision with us
 
 ## 📁 Repository Structure
+SixthMassExtinction/
+├── game/ # Godot project (core gameplay)
+├── docs/ # Documentation (EN/ES)
+├── research/ # Scientific references
+├── tools/ # Development utilities
+└── .github/ # CI/CD and community templates
+## 🔗 Important Links
+- [📚 Full Documentation](docs/)
+- [🗺️ Roadmap](docs/ROADMAP.md)
+- [📖 Game Design Document](docs/GAME_DESIGN.md)
+- [👥 Code of Conduct](docs/CODE_OF_CONDUCT.md)
+- [🌐 Spanish Version](docs/spanish/README-es.md)
+
+## 📜 License
+- **Code**: GNU General Public License v3.0
+- **Assets**: Creative Commons Attribution-ShareAlike 4.0
+- **Documentation**: Creative Commons Attribution 4.0
+
+---
+
+**Project Lead**: Teo Valentin Marpegan ([@TeoVMP](https://github.com/TeoVMP))  
+**Vision**: Building a revolutionary game through revolutionary means.  
+**This is not just development. This is preparation.**
+
+[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
+[![Godot 5.3](https://img.shields.io/badge/Godot-5.3-%23478CBF)](https://godotengine.org)
+[![Contributions Welcome](https://img.shields.io/badge/Contributions-Welcome-brightgreen.svg)](docs/CONTRIBUTING.md)
