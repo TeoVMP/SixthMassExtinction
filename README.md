@@ -1,82 +1,109 @@
 # Sixth Mass Extinction: Temporal Insurgency
 
-> "You can't change the past. But you can create a better future from it."
+## The Year Is 2055. You're About To Change Everything.
 
-## 🕰️ The Premise
-The year is 2055. Humanity is collapsing. You're Dr. Alexei Volkov, a scientist from a failed future who steals time travel technology and jumps back to 2025 with one mission: **prevent the 6th Mass Extinction before 2035**.
+**Sixth Mass Extinction: Temporal Insurgency** is an open-source, community-driven survival shooter where you're a scientist from a collapsed future who travels back to 2025 to prevent humanity's extinction before 2035. Every decision rewrites reality, every action echoes across timelines, and every life you take—or save—reshapes the multiverse.
 
-But there's a catch: you were born in 2020. If anyone discovers your DNA or identity in 2025, your 5-year-old self will be eliminated. You must save humanity while hiding from yourself.
+You are Alexei Volkov (name customizable), born 2020, quantum physicist turned temporal insurgent. In 2055, you stole time travel technology by hacking classified servers. Now you're back in 2025 with one mission: prevent the 6th Mass Extinction while hiding from your own past self. If your DNA or identity is discovered, your 5-year-old self will be eliminated.
 
-## 🎮 Core Gameplay
+## Core Gameplay Systems
 
-### Temporal Insurgency
-- **Paradox Management**: Interact with your past self, create branching realities
-- **Revolutionary Warfare**: Build global uprising against extractive oligarchies
-- **Real Cybersecurity**: Simplified hacking puzzles using actual concepts (Tor, Metasploit, frequency jamming)
-- **Sanity System**: Mental health affects abilities and narrative options
-- **Dynamic Reputation**: Global populations react to your actions and manifestos
+### Temporal Paradox Management
+You exist in 2025 while your younger self lives in the same timeline. You can interact with, protect, and even raise your past self, creating complex branching realities that affect global reputation and sanity.
 
-### Unique Features
-- **AI-Powered Discourse Engine**: NPCs analyze your revolutionary manifestos
-- **Procedural Activist Rescue**: Save real historical figures from assassination
-- **Multiversal Conflict**: Discover you're part of a larger war across realities
-- **Identity Crafting**: Forge documents, plan logistics, build false lives
+### Revolutionary Reputation System
+Every action affects how global populations perceive the revolution. Feeding oppressed indigenous communities builds reputation in the Global South, while assassinating oligarchs too early creates backlash. The system dynamically tracks your standing across 78 simulated nations and 200+ activist groups.
 
-## 🛠️ Technology Stack
-- **Engine**: Godot 5.3 (100% Open Source)
-- **Languages**: GDScript 2.0, Rust, C#
-- **AI Systems**: Local LLMs for dynamic dialogue
-- **Platform**: Windows, Linux, macOS
-- **License**: Code - GPLv3, Assets - CC BY-SA 4.0
+### AI-Powered Discourse Engine
+After major operations, you craft revolutionary manifestos. Our AI system analyzes your discourse for coherence, ethical alignment, and persuasive power, then calculates reputation impact across affected populations. Trollish, hateful, or irrelevant content is filtered automatically.
 
-## 🤝 Join the Revolution
+### Sanity Mechanics (Inspired by Call of Cthulhu)
+Every kill, every hunted animal, every temporal anomaly chips away at your sanity. High sanity improves diplomatic skills and revolutionary rhetoric. Low sanity unlocks brutal efficiency but isolates you from potential allies.
 
-### We Need:
-- **Developers** (Godot/GDScript/Rust)
-- **Scientists** (Ecology, Climate, Biology)
-- **Cybersecurity Experts**
-- **Writers & Narrative Designers**
-- **2D/3D Artists**
-- **Translators** (Spanish priority)
-- **Political Theorists**
-- **Sound Designers**
+### Offensive Cybersecurity as Gameplay
+Solve puzzles using real hacking concepts simplified for intuitive gameplay: frequency jamming for drones, Tor routing for investigations, Metasploit modules for CCTV breaches, identity spoofing for infiltration. No technical knowledge required—only logical thinking within authentic digital scenarios.
 
-### Quick Start:
-1. **Read** [Contributing Guidelines](docs/CONTRIBUTING.md)
-2. **Check** [Open Issues](https://github.com/TeoVMP/SixthMassExtinction/issues)
-3. **Join** [Discussions](https://github.com/TeoVMP/SixthMassExtinction/discussions)
-4. **Pick** a `good-first-issue` to start
+### Dynamic Identity and Logistics System
+Forge multiple false identities, plan complex international routes, coordinate supply chains for revolutionary cells. Time passes realistically as you arrange travel from Icelandic geothermal hideouts to conflict zones in North Kivu.
 
-## 📊 Project Status
-**Phase**: Pre-Alpha - Architectural Design  
-**Next Milestone**: Temporal Paradox MVP  
-**Community**: Just launched - shape the vision with us
+## The Three-Layer Conflict
 
-## 📁 Repository Structure
-SixthMassExtinction/
-├── game/           # Godot project (core gameplay)
-├── docs/           # Documentation (EN/ES)
-├── research/       # Scientific references
-├── tools/          # Development utilities
-└── .github/        # CI/CD and community templates
-## 🔗 Important Links
-- [📚 Full Documentation](docs/)
-- [🗺️ Roadmap](docs/ROADMAP.md)
-- [📖 Game Design Document](docs/GAME_DESIGN.md)
-- [👥 Code of Conduct](docs/CODE_OF_CONDUCT.md)
-- [🌐 Spanish Version](docs/spanish/README-es.md)
+### Layer 1: The 2025 Climate Insurgency
+Prevent ecological collapse by 2035 through direct action: disrupt fossil infrastructure, protect biodiversity corridors, expose corporate ecocide, and build alternative systems with Global South communities.
 
-## 📜 License
-- **Code**: GNU General Public License v3.0
-- **Assets**: Creative Commons Attribution-ShareAlike 4.0
-- **Documentation**: Creative Commons Attribution 4.0
+### Layer 2: The Temporal Cold War
+Other time travelers from 2055 seek to exploit this timeline. Some work for oligarchs wanting to cement power across realities. Some belong to factions you haven't discovered yet. All operate under the same paradox constraints.
 
----
+### Layer 3: The Multiversal Threat
+Discover you're part of a larger conflict spanning infinite realities. A utopian timeline exists where humanity achieved harmony. Your ultimate mission expands from saving one Earth to preserving the multiverse from an incomprehensible predatory force.
 
-**Project Lead**: Teo Valentin Marpegan ([@TeoVMP](https://github.com/TeoVMP))  
-**Vision**: Building a revolutionary game through revolutionary means.  
-**This is not just development. This is preparation.**
+## Key Narrative Missions
 
-[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
-[![Godot 5.3](https://img.shields.io/badge/Godot-5.3-%23478CBF)](https://godotengine.org)
-[![Contributions Welcome](https://img.shields.io/badge/Contributions-Welcome-brightgreen.svg)](docs/CONTRIBUTING.md)
+### The Swedish Weapon Scientist
+Dr. Erik Lundgren will develop a reality-destroying temporal weapon by 2037. You accessed NSA files in 2051 detailing this. If recruited before 2030, he becomes a revolutionary scientist providing perks. After 2030, he's mind-controlled by oligarchs—forcing a moral choice: assassinate him (sanity penalty, but reverse-engineering opportunities) or take him hostage to negotiate with extractive corporations.
+
+### Activist Rescue Operations
+Access future databases to learn names, dates, and locations of upcoming assassinations of human/environmental rights activists. Prevent these killings to gain influential allies and revolutionary credibility worldwide.
+
+### Raising Your Past Self
+When your cover is inevitably compromised, extract your 5-year-old self and raise them in hiding. This creates a unique NPC companion whose development reflects your choices, teaching you about your own childhood traumas and resilience.
+
+## Technical Implementation
+
+### Godot 5.3 with Modular Architecture
+- Core survival/shooter mechanics in GDScript 2.0
+- AI systems in C# and Rust bindings
+- Procedural mission generation based on real climate data
+- Dynamic dialogue system with ConvAI integration for NPCs
+
+### Revolutionary Discourse AI
+- Local LLM processing player manifestos
+- Ethical alignment filters against hate speech and disinformation
+- Cultural context analysis for 12 geopolitical regions
+- Reputation impact simulation across interconnected populations
+
+### Voice-Enabled Companion AI
+An in-game smartphone assistant provides mission hints, tactical analysis, and revolutionary history context through natural conversation, adapting to your sanity level and strategic preferences.
+
+### Community-Driven Development
+This project thrives on interdisciplinary collaboration:
+- Programmers for simulation systems
+- Ecologists for accurate climate modeling
+- Cybersecurity experts for authentic hacking scenarios
+- Political theorists for revolutionary dynamics
+- Writers for branching narrative design
+- Translators for global accessibility
+
+## Project Structure
+sixth-mass-extinction/
+├── temporal_systems/ # Time paradox mechanics
+├── revolution_sim/ # Reputation and population modeling
+├── cybersecurity/ # Hacking puzzle systems
+├── sanity_mechanics/ # Mental health simulation
+├── narrative_branching/ # Dynamic story engine
+├── ai_discourse/ # Revolutionary manifesto processor
+├── logistics_sim/ # Identity and travel planning
+└── community_content/ # User-generated missions/assets
+text
+## Development Philosophy
+
+Sixth Mass Extinction is more than a game—it's a collective thought experiment about humanity's most urgent crossroads. We're building this openly because the questions we're asking belong to everyone: How do we organize society within planetary boundaries? What sacrifices are justified to prevent extinction? Can revolutionary change be both effective and ethical?
+
+The answers will emerge from our global community of contributors.
+
+## Getting Started
+
+1. Fork this repository
+2. Read `docs/CONTRIBUTING.md` for our interdisciplinary collaboration guidelines
+3. Check `docs/ARCHITECTURE.md` for system specifications
+4. Join discussion in Issues or our community forum
+
+## License
+Code: GNU GPL v3.0
+Assets: CC BY-SA 4.0
+Narrative Content: Collective Commons Attribution
+
+## Project Lead
+Teo Valentin Marpegan (GitHub: TeoVMP)
+
+This is not just development. This is preparation.
