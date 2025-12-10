@@ -24,7 +24,7 @@ Every kill, every hunted animal, every temporal anomaly chips away at your sanit
 Solve puzzles using real hacking concepts simplified for intuitive gameplay: frequency jamming for drones, Tor routing for investigations, Metasploit modules for CCTV breaches, identity spoofing for infiltration. No technical knowledge required—only logical thinking within authentic digital scenarios.
 
 ### Dynamic Identity and Logistics System
-Forge multiple false identities, plan complex international routes, coordinate supply chains for revolutionary cells. Time passes realistically as you arrange travel from Icelandic geothermal hideouts to conflict zones in North Kivu.
+Forge multiple false identities, plan complex international routes, coordinate supply chains for revolutionary cells. Time passes realistically as you arrange travel from Icelandic geothermal hideouts to conflict zones.
 
 ## The Three-Layer Conflict
 
