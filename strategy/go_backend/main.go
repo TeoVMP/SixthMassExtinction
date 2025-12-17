@@ -202,12 +202,12 @@ func main() {
 		WriteTimeout: 15 * time.Second,
 	}
 
-	log.Println("🚀 Sixth Mass Extinction - Backend Go")
-	log.Println("📡 Servidor iniciado en http://localhost:8080")
-	log.Println("🔄 Usa /rpc para las peticiones JSON-RPC")
+	log.Println("Sixth Mass Extinction - Backend Go")
+	log.Println("Servidor iniciado en http://localhost:8080")
+	log.Println("Usa /rpc para las peticiones JSON-RPC")
 
 	if err := server.ListenAndServe(); err != nil {
-		log.Fatal("❌ Error iniciando servidor:", err)
+		log.Fatal("Error iniciando servidor:", err)
 	}
 }
 
@@ -653,13 +653,13 @@ func checkSanityThresholds(oldSanity, newSanity int) {
 
 	// Verificar si cruzó umbral crítico (< 15)
 	if oldSanity >= critical && newSanity < critical {
-		log.Println("⚠️ ¡CORDURA CRÍTICA! Riesgo de suicidio")
+		log.Println("¡CORDURA CRÍTICA! Riesgo de suicidio")
 	} else if oldSanity >= low && newSanity < low {
 		// Verificar si cruzó umbral bajo (< 30)
-		log.Println("⚠️ Cordura baja - Flashbacks activados")
+		log.Println("Cordura baja - Flashbacks activados")
 	} else if oldSanity < high && newSanity >= high {
 		// Verificar si subió a nivel alto (> 70)
-		log.Println("✅ Cordura alta - Bonus a diplomacia")
+		log.Println("Cordura alta - Bonus a diplomacia")
 	}
 }
 
