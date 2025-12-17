@@ -1,0 +1,58 @@
+# Godot-specific ignores
+*.import
+export.cfg
+export_presets.cfg
+.godot/
+godot-*/
+
+# System files
+.DS_Store
+Thumbs.db
+*.orig
+*.pyc
+
+# IDE/Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Build artifacts
+bin/
+obj/
+*.exe
+*.pdb
+*.lib
+*.a
+*.so
+*.dll
+*.dylib
+
+# OS generated files
+ehthumbs.db
+Icon?
+*.icon
+._*
+
+# Temporary files
+*.tmp
+*.temp
+*~
+*.bak
+
+# Logs
+*.log
+logs/
+
+# Local config files
+config.local.*
+.env
+.secret
+
+# Large assets (subir solo referencias)
+assets/raw/          # Solo mantener archivos fuente
+assets/processed/    # Generados automáticamente
+
+# Dependencies (manejados por el sistema del proyecto)
+addons/              # Excepto addons personalizados
+third_party/         # Solo si son submodulos

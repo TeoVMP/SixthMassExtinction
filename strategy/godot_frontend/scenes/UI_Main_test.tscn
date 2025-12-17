@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://c034euokbmhay"]
+
+[ext_resource type="Script" uid="uid://cotbqrr6al32p" path="res://scenes/UI_Main.gd" id="1"]
+
+[node name="UI_Main" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1")

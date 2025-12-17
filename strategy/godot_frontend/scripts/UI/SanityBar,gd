@@ -1,0 +1,77 @@
+# godot_frontend/scripts/UI/NeedsDisplay.gd
+extends HBoxContainer
+
+class NeedIndicator extends HBoxContainer:
+    var need_type: String
+    var progress_bar: ProgressBar
+    var icon: TextureRect
+    var label: Label
+    
+    func _init(type: String, icon_path: String, color: Color):
+        need_type = type
+        
+        icon = TextureRect.new()
+        icon.texture = load(icon_path)
+        icon.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+        icon.custom_minimum_size = Vector2(32, 32)
+        add_child(icon)
+        
+        progress_bar = ProgressBar.new()
+        progress_bar.max_value = 100
+        progress_bar.min_value = 0
+        progress_bar.value = 50
+        progress_bar.custom_minimum_size = Vector2(100, 20)
+        progress_bar.add_theme_stylebox_override("fill", create_stylebox(color))
+        add_child(progress_bar)
+        
+        label = Label.new()
+        label.text = type.capitalize()
+        add_child(label)
+    
+    func update_value(value: int):
+        progress_bar.value = value
+        
+        # Actualizar color según nivel
+        if value > 80:
+            progress_bar.add_theme_stylebox_override("fill", create_stylebox(Color.RED))
+            label.add_theme_color_override("font_color", Color.RED)
+        elif value > 60:
+            progress_bar.add_theme_stylebox_override("fill", create_theme_stylebox(Color.ORANGE))
+            label.add_theme_color_override("font_color", Color.ORANGE)
+        else:
+            progress_bar.add_theme_stylebox_override("fill", create_stylebox(Color.GREEN))
+            label.add_theme_color_override("font_color", Color.GREEN)
+    
+    func create_stylebox(color: Color) -> StyleBoxFlat:
+        var stylebox = StyleBoxFlat.new()
+        stylebox.bg_color = color
+        stylebox.corner_radius_top_left = 4
+        stylebox.corner_radius_top_right = 4
+        stylebox.corner_radius_bottom_left = 4
+        stylebox.corner_radius_bottom_right = 4
+        return stylebox
+
+var needs: Dictionary = {}
+
+func _ready():
+    setup_needs()
+
+func setup_needs():
+    # Crear indicadores para cada necesidad
+    var need_configs = {
+        "hunger": {"icon": "res://assets/ui/hunger_icon.png", "color": Color.ORANGE},
+        "thirst": {"icon": "res://assets/ui/thirst_icon.png", "color": Color.BLUE},
+        "sleep": {"icon": "res://assets/ui/sleep_icon.png", "color": Color.PURPLE},
+        "stress": {"icon": "res://assets/ui/stress_icon.png", "color": Color.RED}
+    }
+    
+    for need_type in need_configs.keys():
+        var config = need_configs[need_type]
+        var indicator = NeedIndicator.new(need_type, config.icon, config.color)
+        add_child(indicator)
+        needs[need_type] = indicator
+
+func update_needs(needs_data: Dictionary):
+    for need_type in needs_data.keys():
+        if needs.has(need_type):
+            needs[need_type].update_value(needs_data[need_type])
