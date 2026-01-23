@@ -12,6 +12,7 @@ import (
 	"time"
 
 	"github.com/gorilla/mux"
+	"sixth-mass-extinction/handlers"
 )
 
 // ============================================
@@ -178,6 +179,11 @@ func main() {
 	r := mux.NewRouter()
 	r.HandleFunc("/rpc", handleRPC).Methods("POST")
 	r.HandleFunc("/health", handleHealth).Methods("GET")
+	
+	// Endpoints de VPN
+	r.HandleFunc("/api/vpn/start/{mission_id}", handlers.StartVPNHandler).Methods("POST")
+	r.HandleFunc("/api/vpn/stop/{mission_id}", handlers.StopVPNHandler).Methods("POST")
+	r.HandleFunc("/api/vpn/config/{mission_id}", handlers.GetVPNConfigHandler).Methods("GET")
 
 	// Configurar CORS para desarrollo
 	corsMiddleware := func(next http.Handler) http.Handler {

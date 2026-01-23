@@ -6,13 +6,14 @@ import (
 )
 
 type Player struct {
-	Sanity     int                    `json:"sanity"`
-	Needs      map[string]int         `json:"needs"`
-	Reputation map[string]int         `json:"reputation"`
-	Traumas    []string               `json:"traumas"`
-	Skills     map[string]int         `json:"skills"`
-	Inventory  []string               `json:"inventory"`
-	Currency   int                    `json:"currency"`
+	Name       string         `json:"name"`
+	Sanity     int            `json:"sanity"`
+	Needs      map[string]int `json:"needs"`
+	Reputation map[string]int `json:"reputation"`
+	Traumas    []string       `json:"traumas"`
+	Skills     map[string]int `json:"skills"`
+	Inventory  []string       `json:"inventory"`
+	Currency   int            `json:"currency"`
 }
 
 type World struct {
@@ -38,10 +39,10 @@ type NPC struct {
 }
 
 type GameState struct {
-	Player   Player            `json:"player"`
-	World    World             `json:"world"`
-	Missions Missions          `json:"missions"`
-	NPCs     map[string]NPC    `json:"npcs"`
+	Player   Player         `json:"player"`
+	World    World          `json:"world"`
+	Missions Missions       `json:"missions"`
+	NPCs     map[string]NPC `json:"npcs"`
 }
 
 type SaveData struct {
@@ -72,7 +73,7 @@ func InitializeGameState() GameState {
 			},
 			Traumas: []string{},
 			Skills: map[string]int{
-				"hacking":  60,
+				"hacking":   60,
 				"diplomacy": 50,
 				"stealth":   40,
 				"survival":  55,
@@ -84,14 +85,14 @@ func InitializeGameState() GameState {
 			ViolenceLevel:   45,
 			CartographPower: 65,
 			RegionHealth: map[string]int{
-				"arctic":       40,
-				"amazon":       35,
-				"africa":       50,
-				"asia":         45,
-				"europe":       60,
+				"arctic":        40,
+				"amazon":        35,
+				"africa":        50,
+				"asia":          45,
+				"europe":        60,
 				"north_america": 55,
-				"oceania":      30,
-				"middle_east":  25,
+				"oceania":       30,
+				"middle_east":   25,
 			},
 			CurrentYear:  2028,
 			CurrentMonth: 9,

@@ -2,7 +2,9 @@
 package handlers
 
 import (
+	"fmt"
 	"math/rand"
+	"sync"
 	"time"
 
 	"sixth-mass-extinction/game"
@@ -13,6 +15,26 @@ var (
 	gameState *game.GameState
 	saveSlots = make(map[int]game.SaveData)
 )
+
+// Variable para almacenar el ID de la misión activa (sincronizada con main.go)
+var activeMissionIDMutex sync.RWMutex
+var activeMissionID string = ""
+
+// SetActiveMissionID establece el ID de la misión activa (llamado desde main.go)
+func SetActiveMissionID(missionID string) {
+	activeMissionIDMutex.Lock()
+	defer activeMissionIDMutex.Unlock()
+	activeMissionID = missionID
+	fmt.Printf("✅ [SetActiveMissionID] Misión activa establecida en handlers: '%s'\n", missionID)
+}
+
+// GetActiveMissionID retorna el ID de la misión activa (exportado para terminal.go)
+func GetActiveMissionID() string {
+	activeMissionIDMutex.RLock()
+	defer activeMissionIDMutex.RUnlock()
+	fmt.Printf("🔍 [GetActiveMissionID] Retornando: '%s'\n", activeMissionID)
+	return activeMissionID
+}
 
 func init() {
 	gameState = &game.GameState{}
@@ -151,6 +173,16 @@ func startMission(params map[string]interface{}) map[string]interface{} {
 	
 	// Iniciar misión
 	gameState.Missions.Active = missionID
+	fmt.Printf("✅ [startMission] Misión activa establecida: %s\n", missionID)
+	fmt.Printf("🔍 [startMission] Verificación: gameState.Missions.Active = '%s'\n", gameState.Missions.Active)
+	
+	// Conectar todos los contenedores Kali a la red compartida de misiones
+	// Esto asegura que estén en la misma red que el servidor víctima
+	// TODO: Implementar connectAllKaliContainersToMissionNetwork cuando sea necesario
+	// if err := connectAllKaliContainersToMissionNetwork(); err != nil {
+	// 	fmt.Printf("⚠️ [startMission] Error conectando contenedores a la red compartida: %v\n", err)
+	// 	// Continuar de todas formas, la misión puede funcionar sin esto
+	// }
 	
 	return map[string]interface{}{
 		"success": true,
@@ -266,11 +298,6 @@ func saveGame(params map[string]interface{}) map[string]interface{} {
 	slot, ok := params["slot"].(float64)
 	if !ok {
 		return errorResponse("Invalid slot parameter")
-	}
-	
-	saveData, ok := params["save_data"].(map[string]interface{})
-	if !ok {
-		return errorResponse("Invalid save_data parameter")
 	}
 	
 	// Guardar en slot (mock - en producción sería en base de datos)
@@ -418,10 +445,10 @@ func getMockMissionData(missionID string) map[string]interface{} {
 					"text":    "Método de acceso al servidor",
 					"options": []string{"Hackeo directo", "Infiltración", "Diplomacia"},
 				},
+			},
 			"rewards": map[string]interface{}{
 				"currency":   500,
 				"reputation": map[string]int{"pe": 20, "eo": -10},
-
 				"items":      []string{"cartograph_data", "encryption_key"},
 			},
 			"duration": 3, // días en juego
@@ -430,7 +457,6 @@ func getMockMissionData(missionID string) map[string]interface{} {
 	
 	return map[string]interface{}{
 		"error": "Misión no encontrada",
-
 	}
 }
 

@@ -2,6 +2,9 @@
 class_name GameStateManager
 extends Node
 
+# Importar tipos de ecosistema
+const EcosystemTypes = preload("res://scripts/managers/EcosystemTypes.gd")
+
 var ecosystems: Dictionary = {}  # ecosistema_id -> EcosystemState
 var protected_areas: Array = []  # Áreas protegidas por misiones completadas
 var restoration_projects: Dictionary = {} # Proyectos activos
@@ -14,21 +17,21 @@ func initialize_ecosystems():
 	# Inicializar con datos base por región
 	var initial_states = {
 		"amazon": {  # Misión 3: El Amazonas
-			"type": ECOSYSTEM_TYPE.FOREST,
+			"type": EcosystemTypes.ECOSYSTEM_TYPE.FOREST,
 			"health": 65.0,
 			"biodiversity": 70.0,
 			"degradation_rate": 2.5,
 			"region": "la"
 		},
 		"great_barrier": {  # Misión 15: El Grito del Coral
-			"type": ECOSYSTEM_TYPE.CORAL,
+			"type": EcosystemTypes.ECOSYSTEM_TYPE.CORAL,
 			"health": 35.0,
 			"biodiversity": 40.0,
 			"degradation_rate": 3.0,
 			"region": "au"
 		},
 		"pantanal": {  # Misión 19: Fuego en el Pantanal
-			"type": ECOSYSTEM_TYPE.WETLAND,
+			"type": EcosystemTypes.ECOSYSTEM_TYPE.WETLAND,
 			"health": 55.0,
 			"biodiversity": 60.0,
 			"degradation_rate": 2.8,
@@ -38,7 +41,7 @@ func initialize_ecosystems():
 	}
 	
 	for eco_id in initial_states:
-		var state = EcosystemState.new()
+		var state = load("res://scripts/data/EcosystemState.gd").new()
 		var data = initial_states[eco_id]
 		state.health = data.health
 		state.biodiversity = data.biodiversity
@@ -93,7 +96,14 @@ func start_monthly_updates():
 
 func _update_monthly():
 	# Obtener impacto humano actual basado en poder de Cartógrafos
-	var cartograph_power = GameClient.get_cartograph_power()
+	var game_client = get_tree().root.find_child("GameClient", true, false)
+	var cartograph_power = 50.0  # Valor por defecto
+	if game_client and game_client.has_method("get_cartograph_power"):
+		cartograph_power = game_client.get_cartograph_power()
+	elif game_client and game_client.has_method("get_world_state"):
+		var world_state = game_client.get_world_state()
+		if world_state and world_state.has("cartograph_power"):
+			cartograph_power = world_state.cartograph_power
 	var global_impact = cartograph_power / 100.0  # 0-1
 	
 	# Actualizar cada ecosistema
@@ -119,3 +129,51 @@ func _update_monthly():
 		emit_signal("ecosystem_updated", eco_id, state)
 	
 	emit_signal("monthly_update_complete")
+
+func add_protected_area(area_id: String, size_km2: float):
+	"""Añade un área protegida"""
+	protected_areas.append({
+		"id": area_id,
+		"size_km2": size_km2,
+		"created_at": Time.get_ticks_msec()
+	})
+
+func start_restoration_project(project_id: String, eco_id: String, duration_months: int):
+	"""Inicia un proyecto de restauración"""
+	restoration_projects[project_id] = {
+		"eco_id": eco_id,
+		"duration_months": duration_months,
+		"start_time": Time.get_ticks_msec(),
+		"progress": 0.0
+	}
+
+func calculate_region_impact_for_eco(eco_id: String, global_impact: float) -> float:
+	"""Calcula el impacto regional para un ecosistema específico"""
+	# Por ahora, usar el impacto global
+	# En el futuro, se puede ajustar según la región
+	return global_impact
+
+func is_protected(eco_id: String) -> bool:
+	"""Verifica si un ecosistema está protegido"""
+	# Verificar si hay áreas protegidas para este ecosistema
+	for area in protected_areas:
+		if area.id.begins_with(eco_id):
+			return true
+	return false
+
+func get_projects_for_ecosystem(eco_id: String) -> Array:
+	"""Obtiene proyectos de restauración para un ecosistema"""
+	var projects = []
+	for project_id in restoration_projects:
+		var project = restoration_projects[project_id]
+		if project.eco_id == eco_id:
+			projects.append(project)
+	return projects
+
+func apply_restoration_effects(project: Dictionary, state):
+	"""Aplica efectos de un proyecto de restauración"""
+	var progress = project.get("progress", 0.0)
+	# Aplicar efectos según el progreso
+	state.health += 0.1 * progress
+	state.biodiversity += 0.1 * progress
+	state.resilience += 0.05 * progress

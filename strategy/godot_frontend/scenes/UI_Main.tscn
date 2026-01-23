@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://c034euokbmhay"]
+[gd_scene load_steps=8 format=3 uid="uid://c034euokbmhay"]
 
 [ext_resource type="Script" uid="uid://cotbqrr6al32p" path="res://scenes/UI_Main.gd" id="1"]
+[ext_resource type="Script" path="res://scripts/UI/PlayerCharacterPanel.gd" id="2"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1"]
-bg_color = Color(0.05, 0.05, 0.05, 1)
+bg_color = Color(0.02, 0.02, 0.03, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3"]
 bg_color = Color(0.2, 0.2, 0.2, 1)
@@ -36,27 +37,33 @@ corner_radius_bottom_right = 3
 corner_radius_bottom_left = 3
 
 [node name="UI_Main" type="Control"]
-layout_mode = 3
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1")
 
 [node name="Background" type="Panel" parent="."]
-layout_mode = 0
+layout_mode = 1
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_1")
 
 [node name="MainContainer" type="VBoxContainer" parent="Background"]
-layout_mode = 0
+layout_mode = 1
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 20.0
-offset_top = 20.0
-offset_right = -20.0
-offset_bottom = -20.0
-alignment = 1
+offset_left = 10.0
+offset_top = 10.0
+offset_right = -10.0
+offset_bottom = -10.0
+alignment = 0
 
 [node name="Header" type="HBoxContainer" parent="Background/MainContainer"]
 layout_mode = 2
@@ -66,8 +73,8 @@ alignment = 1
 [node name="Title" type="Label" parent="Background/MainContainer/Header"]
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_colors/font_color = Color(0, 0.8, 0, 1)
-theme_override_font_sizes/font_size = 32
+theme_override_colors/font_color = Color(0, 1, 1, 1)
+theme_override_font_sizes/font_size = 52
 text = "SIXTH MASS EXTINCTION"
 horizontal_alignment = 1
 
@@ -81,114 +88,27 @@ horizontal_alignment = 2
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme_override_constants/separation = 15
+alignment = 0
 
 [node name="LeftPanel" type="VBoxContainer" parent="Background/MainContainer/Content"]
-custom_minimum_size = Vector2(400, 0)
+custom_minimum_size = Vector2(380, 0)
 layout_mode = 2
+size_flags_horizontal = 0
 size_flags_vertical = 3
 
-[node name="PlayerStatus" type="VBoxContainer" parent="Background/MainContainer/Content/LeftPanel"]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="PlayerStatusLabel" type="Label" parent="Background/MainContainer/Content/LeftPanel/PlayerStatus"]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_colors/font_color = Color(0.8, 0.8, 0.8, 1)
-theme_override_font_sizes/font_size = 20
-text = "ESTADO DEL JUGADOR"
-
-[node name="SanityContainer" type="VBoxContainer" parent="Background/MainContainer/Content/LeftPanel/PlayerStatus"]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_constants/separation = 5
-
-[node name="SanityLabel" type="Label" parent="Background/MainContainer/Content/LeftPanel/PlayerStatus/SanityContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-text = "CORDURA: 85"
-
-[node name="SanityBar" type="ProgressBar" parent="Background/MainContainer/Content/LeftPanel/PlayerStatus/SanityContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 4
-theme_override_styles/background = SubResource("StyleBoxFlat_3")
-theme_override_styles/fill = SubResource("StyleBoxFlat_2")
-value = 85.0
-
-[node name="NeedsContainer" type="GridContainer" parent="Background/MainContainer/Content/LeftPanel/PlayerStatus"]
+[node name="PlayerCharacterPanel" type="VBoxContainer" parent="Background/MainContainer/Content/LeftPanel"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 2
-theme_override_constants/h_separation = 20
-theme_override_constants/v_separation = 15
-columns = 2
-
-[node name="HungerLabel" type="Label" parent="Background/MainContainer/Content/LeftPanel/PlayerStatus/NeedsContainer"]
-layout_mode = 2
-text = "HAMBRE:"
-
-[node name="HungerValue" type="Label" parent="Background/MainContainer/Content/LeftPanel/PlayerStatus/NeedsContainer"]
-layout_mode = 2
-text = "50"
-horizontal_alignment = 2
-
-[node name="ThirstLabel" type="Label" parent="Background/MainContainer/Content/LeftPanel/PlayerStatus/NeedsContainer"]
-layout_mode = 2
-text = "SED:"
-
-[node name="ThirstValue" type="Label" parent="Background/MainContainer/Content/LeftPanel/PlayerStatus/NeedsContainer"]
-layout_mode = 2
-text = "50"
-horizontal_alignment = 2
-
-[node name="SleepLabel" type="Label" parent="Background/MainContainer/Content/LeftPanel/PlayerStatus/NeedsContainer"]
-layout_mode = 2
-text = "SUEÑO:"
-
-[node name="SleepValue" type="Label" parent="Background/MainContainer/Content/LeftPanel/PlayerStatus/NeedsContainer"]
-layout_mode = 2
-text = "70"
-horizontal_alignment = 2
-
-[node name="StressLabel" type="Label" parent="Background/MainContainer/Content/LeftPanel/PlayerStatus/NeedsContainer"]
-layout_mode = 2
-text = "ESTRÉS:"
-
-[node name="StressValue" type="Label" parent="Background/MainContainer/Content/LeftPanel/PlayerStatus/NeedsContainer"]
-layout_mode = 2
-text = "30"
-horizontal_alignment = 2
-
-[node name="Separator1" type="HSeparator" parent="Background/MainContainer/Content/LeftPanel/PlayerStatus"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 4
-
-[node name="ReputationContainer" type="VBoxContainer" parent="Background/MainContainer/Content/LeftPanel/PlayerStatus"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 2
-theme_override_constants/separation = 5
-
-[node name="ReputationLabel" type="Label" parent="Background/MainContainer/Content/LeftPanel/PlayerStatus/ReputationContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_font_sizes/font_size = 16
-text = "REPUTACIÓN POR REGIÓN"
-
-[node name="ReputationGrid" type="GridContainer" parent="Background/MainContainer/Content/LeftPanel/PlayerStatus/ReputationContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-theme_override_constants/h_separation = 15
-theme_override_constants/v_separation = 5
-columns = 2
+theme_override_constants/separation = 8
+script = ExtResource("2")
 
 [node name="ActionsContainer" type="VBoxContainer" parent="Background/MainContainer/Content/LeftPanel"]
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_constants/separation = 10
+size_flags_vertical = 3
+theme_override_constants/separation = 8
 
 [node name="ActionsLabel" type="Label" parent="Background/MainContainer/Content/LeftPanel/ActionsContainer"]
 layout_mode = 2
@@ -197,12 +117,20 @@ theme_override_colors/font_color = Color(0.8, 0.8, 0.8, 1)
 theme_override_font_sizes/font_size = 20
 text = "ACCIONES"
 
+[node name="TerminalButton" type="Button" parent="Background/MainContainer/Content/LeftPanel/ActionsContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 16
+text = "6ME SHELL"
+flat = true
+
 [node name="ConnectButton" type="Button" parent="Background/MainContainer/Content/LeftPanel/ActionsContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
 theme_override_font_sizes/font_size = 16
-text = "🔄 Conectar al Servidor"
+text = "Conectar al Servidor"
 flat = true
 
 [node name="TestConnectionButton" type="Button" parent="Background/MainContainer/Content/LeftPanel/ActionsContainer"]
@@ -210,7 +138,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
 theme_override_font_sizes/font_size = 14
-text = "🔍 Test Conexión"
+text = "Test Conexion"
 flat = true
 
 [node name="ModifySanityContainer" type="HBoxContainer" parent="Background/MainContainer/Content/LeftPanel/ActionsContainer"]
@@ -236,32 +164,38 @@ size_flags_vertical = 4
 [node name="FoodButton" type="Button" parent="Background/MainContainer/Content/LeftPanel/ActionsContainer/SatisfyNeedsContainer"]
 layout_mode = 2
 size_flags_vertical = 4
-text = "🍎 Comer"
+text = "Comer"
 
 [node name="WaterButton" type="Button" parent="Background/MainContainer/Content/LeftPanel/ActionsContainer/SatisfyNeedsContainer"]
 layout_mode = 2
 size_flags_vertical = 4
-text = "💧 Beber"
+text = "Beber"
 
 [node name="SleepButton" type="Button" parent="Background/MainContainer/Content/LeftPanel/ActionsContainer/SatisfyNeedsContainer"]
 layout_mode = 2
 size_flags_vertical = 4
-text = "😴 Dormir"
+text = "Dormir"
 
-[node name="ManifestoButton" type="Button" parent="Background/MainContainer/Content/LeftPanel/ActionsContainer"]
+[node name="MapEcosystemsContainer" type="HBoxContainer" parent="Background/MainContainer/Content/LeftPanel/ActionsContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme_override_constants/separation = 10
+
+[node name="WorldMapButton" type="Button" parent="Background/MainContainer/Content/LeftPanel/ActionsContainer/MapEcosystemsContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
 theme_override_font_sizes/font_size = 16
-text = "📜 Enviar Manifiesto"
+text = "Mapa del Mundo"
 flat = true
 
-[node name="StartMissionButton" type="Button" parent="Background/MainContainer/Content/LeftPanel/ActionsContainer"]
+[node name="EcosystemsButton" type="Button" parent="Background/MainContainer/Content/LeftPanel/ActionsContainer/MapEcosystemsContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
 theme_override_font_sizes/font_size = 16
-text = "🚀 Iniciar Misión Islandia"
+text = "Ecosistemas"
 flat = true
 
 [node name="SaveLoadContainer" type="HBoxContainer" parent="Background/MainContainer/Content/LeftPanel/ActionsContainer"]
@@ -273,24 +207,140 @@ theme_override_constants/separation = 10
 [node name="SaveButton" type="Button" parent="Background/MainContainer/Content/LeftPanel/ActionsContainer/SaveLoadContainer"]
 layout_mode = 2
 size_flags_vertical = 4
-text = "💾 Guardar"
+text = "Guardar"
 
 [node name="LoadButton" type="Button" parent="Background/MainContainer/Content/LeftPanel/ActionsContainer/SaveLoadContainer"]
 layout_mode = 2
 size_flags_vertical = 4
-text = "📂 Cargar"
+text = "Cargar"
 
 [node name="RightPanel" type="VBoxContainer" parent="Background/MainContainer/Content"]
-custom_minimum_size = Vector2(600, 0)
 layout_mode = 2
-size_flags_horizontal = 2
+size_flags_horizontal = 3
 size_flags_vertical = 3
-theme_override_constants/separation = 20
+theme_override_constants/separation = 10
+
+[node name="PlayerStatus" type="VBoxContainer" parent="Background/MainContainer/Content/RightPanel"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+theme_override_constants/separation = 6
+
+[node name="PlayerStatusLabel" type="Label" parent="Background/MainContainer/Content/RightPanel/PlayerStatus"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.8, 0.8, 0.8, 1)
+theme_override_font_sizes/font_size = 20
+text = "ESTADO DEL JUGADOR"
+
+[node name="SanityContainer" type="VBoxContainer" parent="Background/MainContainer/Content/RightPanel/PlayerStatus"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 5
+
+[node name="SanityLabel" type="Label" parent="Background/MainContainer/Content/RightPanel/PlayerStatus/SanityContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "CORDURA: 85"
+
+[node name="SanityBar" type="ProgressBar" parent="Background/MainContainer/Content/RightPanel/PlayerStatus/SanityContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme_override_styles/background = SubResource("StyleBoxFlat_3")
+theme_override_styles/fill = SubResource("StyleBoxFlat_2")
+value = 85.0
+
+[node name="NeedsContainer" type="GridContainer" parent="Background/MainContainer/Content/RightPanel/PlayerStatus"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+theme_override_constants/h_separation = 20
+theme_override_constants/v_separation = 10
+columns = 2
+
+[node name="HungerLabel" type="Label" parent="Background/MainContainer/Content/RightPanel/PlayerStatus/NeedsContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 15
+text = "HAMBRE:"
+
+[node name="HungerValue" type="Label" parent="Background/MainContainer/Content/RightPanel/PlayerStatus/NeedsContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 15
+text = "50"
+horizontal_alignment = 2
+
+[node name="ThirstLabel" type="Label" parent="Background/MainContainer/Content/RightPanel/PlayerStatus/NeedsContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 15
+text = "SED:"
+
+[node name="ThirstValue" type="Label" parent="Background/MainContainer/Content/RightPanel/PlayerStatus/NeedsContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 15
+text = "50"
+horizontal_alignment = 2
+
+[node name="SleepLabel" type="Label" parent="Background/MainContainer/Content/RightPanel/PlayerStatus/NeedsContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 15
+text = "SUENO:"
+
+[node name="SleepValue" type="Label" parent="Background/MainContainer/Content/RightPanel/PlayerStatus/NeedsContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 15
+text = "70"
+horizontal_alignment = 2
+
+[node name="StressLabel" type="Label" parent="Background/MainContainer/Content/RightPanel/PlayerStatus/NeedsContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 15
+text = "ESTRES:"
+
+[node name="StressValue" type="Label" parent="Background/MainContainer/Content/RightPanel/PlayerStatus/NeedsContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 15
+text = "30"
+horizontal_alignment = 2
+
+[node name="Separator1" type="HSeparator" parent="Background/MainContainer/Content/RightPanel/PlayerStatus"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+
+[node name="ReputationContainer" type="VBoxContainer" parent="Background/MainContainer/Content/RightPanel/PlayerStatus"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+theme_override_constants/separation = 3
+
+[node name="ReputationLabel" type="Label" parent="Background/MainContainer/Content/RightPanel/PlayerStatus/ReputationContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 16
+text = "REPUTACIÓN POR REGIÓN"
+
+[node name="ReputationGrid" type="GridContainer" parent="Background/MainContainer/Content/RightPanel/PlayerStatus/ReputationContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+theme_override_constants/h_separation = 20
+theme_override_constants/v_separation = 5
+columns = 2
 
 [node name="MissionsContainer" type="VBoxContainer" parent="Background/MainContainer/Content/RightPanel"]
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_constants/separation = 10
+size_flags_vertical = 3
+theme_override_constants/separation = 8
 
 [node name="MissionsLabel" type="Label" parent="Background/MainContainer/Content/RightPanel/MissionsContainer"]
 layout_mode = 2
@@ -302,16 +352,19 @@ text = "MISIONES"
 [node name="ActiveMissionLabel" type="Label" parent="Background/MainContainer/Content/RightPanel/MissionsContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_font_sizes/font_size = 16
+theme_override_font_sizes/font_size = 14
 text = "Activa: Ninguna"
 
 [node name="MissionDetails" type="TextEdit" parent="Background/MainContainer/Content/RightPanel/MissionsContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+custom_minimum_size = Vector2(0, 180)
 focus_mode = 0
 theme_override_styles/normal = SubResource("StyleBoxFlat_4")
-text = "Selecciona una misión para ver detalles."
+theme_override_font_sizes/font_size = 13
+wrap_mode = 2
+text = "Selecciona una mision para ver detalles."
 editable = false
 
 [node name="MissionChoicesContainer" type="VBoxContainer" parent="Background/MainContainer/Content/RightPanel/MissionsContainer"]
@@ -335,13 +388,14 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
 theme_override_font_sizes/font_size = 16
-text = "✅ Completar Misión"
+text = "Completar Mision"
 flat = true
 
 [node name="WorldStatusContainer" type="VBoxContainer" parent="Background/MainContainer/Content/RightPanel"]
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_constants/separation = 10
+size_flags_vertical = 0
+theme_override_constants/separation = 8
 
 [node name="WorldLabel" type="Label" parent="Background/MainContainer/Content/RightPanel/WorldStatusContainer"]
 layout_mode = 2
@@ -353,54 +407,71 @@ text = "ESTADO MUNDIAL"
 [node name="WorldStatsGrid" type="GridContainer" parent="Background/MainContainer/Content/RightPanel/WorldStatusContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
+size_flags_vertical = 0
 theme_override_constants/h_separation = 20
 theme_override_constants/v_separation = 10
 columns = 2
 
 [node name="ViolenceLabel" type="Label" parent="Background/MainContainer/Content/RightPanel/WorldStatusContainer/WorldStatsGrid"]
 layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 16
 text = "Nivel Violencia:"
 
 [node name="ViolenceValue" type="Label" parent="Background/MainContainer/Content/RightPanel/WorldStatusContainer/WorldStatsGrid"]
 layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 16
 text = "45"
 horizontal_alignment = 2
 
 [node name="CartographLabel" type="Label" parent="Background/MainContainer/Content/RightPanel/WorldStatusContainer/WorldStatsGrid"]
 layout_mode = 2
-text = "Poder Cartógrafos:"
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 16
+text = "Poder Cartografos:"
 
 [node name="CartographValue" type="Label" parent="Background/MainContainer/Content/RightPanel/WorldStatusContainer/WorldStatsGrid"]
 layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 16
 text = "65"
 horizontal_alignment = 2
 
 [node name="TimeLabel" type="Label" parent="Background/MainContainer/Content/RightPanel/WorldStatusContainer/WorldStatsGrid"]
 layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 16
 text = "Fecha:"
 
 [node name="TimeValue" type="Label" parent="Background/MainContainer/Content/RightPanel/WorldStatusContainer/WorldStatsGrid"]
 layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 16
 text = "14/9/2028"
 horizontal_alignment = 2
 
 [node name="LogContainer" type="VBoxContainer" parent="Background/MainContainer/Content/RightPanel"]
 layout_mode = 2
 size_flags_horizontal = 3
+size_flags_vertical = 3
 theme_override_constants/separation = 5
 
 [node name="LogLabel" type="Label" parent="Background/MainContainer/Content/RightPanel/LogContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_font_sizes/font_size = 16
+theme_override_font_sizes/font_size = 18
 text = "REGISTRO DEL SISTEMA"
 
 [node name="LogText" type="TextEdit" parent="Background/MainContainer/Content/RightPanel/LogContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+custom_minimum_size = Vector2(0, 180)
 focus_mode = 0
 theme_override_styles/normal = SubResource("StyleBoxFlat_5")
+theme_override_font_sizes/font_size = 12
+wrap_mode = 2
 text = "Sistema inicializado...
-Esperando conexión..."
+Esperando conexion..."
 editable = false

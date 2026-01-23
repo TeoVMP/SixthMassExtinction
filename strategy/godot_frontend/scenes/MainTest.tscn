@@ -2,5 +2,11 @@
 
 [ext_resource type="Script" uid="uid://bcsi7hl3qo6ag" path="res://scenes/main_test.gd" id="1_xtxfm"]
 
-[node name="Node2D" type="Node2D"]
+[node name="MainTest" type="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_xtxfm")

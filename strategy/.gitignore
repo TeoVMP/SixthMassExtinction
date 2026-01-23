@@ -1,0 +1,42 @@
+# Binarios y ejecutables
+*.exe
+*.dll
+*.so
+*.dylib
+go_backend/*.exe
+go_backend/test*.exe
+
+# Archivos de configuración VPN (contienen claves privadas)
+go_backend/vpn_configs/*.conf
+!go_backend/vpn_configs/.gitkeep
+
+# Archivos de backup
+*_backup.*
+backup/
+../backup/
+
+# Archivos temporales
+*.tmp
+*.log
+*.swp
+*.swo
+*~
+
+# Archivos del sistema
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Archivos de IDE
+.vscode/
+.idea/
+*.iml
+
+# Archivos de Godot (si no quieres subirlos)
+# godot_frontend/.import/
+
+# Archivos de recursos grandes (si no quieres subirlos)
+# go_backend/resources/java/*.deb
+
+# Archivos de test
+test_*.exe
