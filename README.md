@@ -45,8 +45,7 @@ Your mental health is your most valuable and fragile resource. As a scientist ra
 Eight geopolitical regions judge you differently. What gains allies in the Global South may lose support in Europe.
 
 **REGIONAL REPUTATION (BASE):**
-- Exploited Peoples: +50 (Africa, Indigenous Latin America, Southeast Asia)
-- United Africa: +40
+- Africa: +40
 - Latin America: +45
 - South Asia: +30
 - China: +10
