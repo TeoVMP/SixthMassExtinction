@@ -42,7 +42,7 @@ Your mental health is your most valuable and fragile resource. As a scientist ra
 
 ### GLOBAL REPUTATION SYSTEM
 
-Eight geopolitical regions judge you differently. What gains allies in the Global South may lose support in Europe.
+Seven geopolitical regions judge you differently. What gains allies in the Global South may lose support in Europe.
 
 **REGIONAL REPUTATION (BASE):**
 - Africa: +40
