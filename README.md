@@ -24,7 +24,7 @@ You are Alexei Volkov, a scientist from a collapsed future who travels to 2028 t
 
 ### SANITY MANAGEMENT (0-100)
 
-Your mental health is your most valuable and fragile resource. As a vegan scientist raised in laboratories, every act of violence, every necessary lie, every life taken erodes your sanity.
+Your mental health is your most valuable and fragile resource. As a scientist raised in laboratories, every act of violence, every necessary lie, every life taken erodes your sanity.
 
 **SANITY LEVELS:**
 - **> 70** : Strategic clarity (+15% diplomacy)
