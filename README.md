@@ -27,7 +27,7 @@ Affecting Factors:
 
 Killing humans: -20 (first time), -10 (subsequent)
 
-Killing animals: -15 (if vegan)
+Killing animals: -15.
 
 Seeing children/allies die: -25
 
@@ -114,6 +114,9 @@ Sequences of revolutionary symbols
 For players preferring pure strategy
 
 HACKER (Real Cybersecurity):
+
+Exploitation of known CVE's
+
 Web vulnerabilities (basic SQLi, XSS)
 
 Network capture forensic analysis
